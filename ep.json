@@ -1,0 +1,13 @@
+{
+    "parts": [
+        {
+            "name": "ep_authorship_toggle",
+            "client_hooks": {
+                "postAceInit": "ep_authorship_toggle/static/js/clientHooks:postAceInit"
+            },
+            "hooks": {
+                "eejsBlock_editbarMenuRight": "ep_authorship_toggle/serverHooks:eejsBlock_editbarMenuRight"
+            }
+        }
+    ]
+}

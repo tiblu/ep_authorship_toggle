@@ -1,0 +1,13 @@
+{
+  "name": "ep_authorship_toggle",
+  "version": "0.0.1",
+  "description": "Toggle authorship colors on and off.",
+  "author": {
+    "name": "Tiblu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiblu/ep_authorship_toggle.git"
+  },
+  "readmeFilename": "README.md"
+}
