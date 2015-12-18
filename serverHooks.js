@@ -1,6 +1,18 @@
-var eejs = require('ep_etherpad-lite/node/eejs/');
+/**
+ * padInitToolbar hook
+ *
+ * Add a button to the toolbar
+ *
+ * @see {@link http://etherpad.org/doc/v1.5.7/#index_padinittoolbar}
+ */
+exports.padInitToolbar = function (hook_name, args) {
+    var toolbar = args.toolbar;
 
-exports.eejsBlock_editbarMenuRight = function (hook_name, args, cb) {
-    args.content = args.content + eejs.require("ep_authorship_toggle/templates/editbarButtons.ejs");
-    return cb();
+    var button = toolbar.button({
+        command: 'epAuthorshipToggle',
+        localizationId: "epAuthorshipToggle.toolbar.toggle.title",
+        class: "buttonicon buttonicon-clearauthorship epAuthorshipToggle"
+    });
+
+    toolbar.registerButton('epAuthorshipToggle', button);
 };

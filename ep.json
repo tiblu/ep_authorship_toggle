@@ -3,10 +3,10 @@
         {
             "name": "ep_authorship_toggle",
             "client_hooks": {
-                "postAceInit": "ep_authorship_toggle/static/js/clientHooks:postAceInit"
+                "postToolbarInit": "ep_authorship_toggle/static/js/clientHooks:postToolbarInit"
             },
             "hooks": {
-                "eejsBlock_editbarMenuRight": "ep_authorship_toggle/serverHooks:eejsBlock_editbarMenuRight"
+                "padInitToolbar": "ep_authorship_toggle/serverHooks:padInitToolbar"
             }
         }
     ]
