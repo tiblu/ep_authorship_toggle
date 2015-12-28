@@ -42,8 +42,11 @@ exports.postToolbarInit = function (hook_name, args) {
                         .css('background-color', clientVars.colorPalette[author.colorId])
                         .text(author.name);
                     $epAuthorList.append(elem);
+                    $epAuthorList.append('<span>, </span>');
                 }
             }
+            // Remove last comma
+            $epAuthorList.find('span').last().remove();
 
             if (Object.keys(authors).length) {
                 $epAuthorshipToggleAuthorList.toggle(); // Show before to get height
