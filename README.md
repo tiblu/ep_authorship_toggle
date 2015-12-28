@@ -11,6 +11,11 @@ As seen, the authorship colors icon was reused for the feature.
 Usually the authorship color setting is in the "Settings" menu. I wanted to have it on the main toolbar.
 I also wanted the list of authors to be shown when the colors are enabled, like it is in the timeslider view.
 
+
+## TODO
+
+* The ``clientVars.collab_client_vars.historicalAuthorData`` does not contain new authors so you won't see yourself for the first time unless you reload the Pad. Any other sources for authors list?
+
 ## Credits
 
 * [CitizenOS](https://citizenos.com) for funding the development 
