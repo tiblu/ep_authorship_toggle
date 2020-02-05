@@ -1,4 +1,4 @@
-#ep_authorship_toggle
+# ep_authorship_toggle
 
 An Etherpad Lite plugin that adds button to the toolbar to toggle authorship colors on and off. Plus it shows the list of authors in case the authorship colors are on.
 
