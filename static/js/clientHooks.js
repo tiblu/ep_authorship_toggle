@@ -24,8 +24,6 @@ exports.postToolbarInit = function (hook_name, args) {
     var $epAuthorList = $epAuthorshipToggleAuthorList.find('#authorsList');
 
     var resizeHandler = function() {
-        console.log('epAuthorshipToggle', 'resize handler!');
-
         $epAuthorshipToggleAuthorList.css('top', $editbar.outerHeight() + 'px');
         $editorcontainer.css('top', $epAuthorshipToggleAuthorList.offset().top + $epAuthorshipToggleAuthorList.outerHeight());
     };
