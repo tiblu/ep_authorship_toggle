@@ -18,5 +18,5 @@ I also wanted the list of authors to be shown when the colors are enabled, like 
 
 ## Credits
 
-* [CitizenOS](https://citizenos.com) for funding the development 
+* [Citizen OS](https://citizenos.com) for funding the development 
 

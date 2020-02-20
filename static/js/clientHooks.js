@@ -14,12 +14,21 @@
 exports.postToolbarInit = function (hook_name, args) {
     var editbar = args.toolbar; // toolbar is actually editbar - http://etherpad.org/doc/v1.5.7/#index_editbar
 
+    var $window = $(window);
     var $inner = $('iframe[name=ace_outer]').contents().find('iframe[name=ace_inner]').contents();
     var $docBody = $inner.find('#innerdocbody');
     var $editorcontainer = $('#editorcontainer');
+    var $editbar = $('#editbar');
 
     var $epAuthorshipToggleAuthorList = $('#epAuthorshipToggleAuthorList');
     var $epAuthorList = $epAuthorshipToggleAuthorList.find('#authorsList');
+
+    var resizeHandler = function() {
+        console.log('epAuthorshipToggle', 'resize handler!');
+
+        $epAuthorshipToggleAuthorList.css('top', $editbar.outerHeight() + 'px');
+        $editorcontainer.css('top', $epAuthorshipToggleAuthorList.offset().top + $epAuthorshipToggleAuthorList.outerHeight());
+    };
 
     editbar.registerCommand('epAuthorshipToggle', function () {
         var isVisibleAuthor = $epAuthorshipToggleAuthorList.is(':visible');
@@ -27,9 +36,12 @@ exports.postToolbarInit = function (hook_name, args) {
         $docBody.toggleClass('authorColors');
 
         if (isVisibleAuthor) { // Is visible so it's gonna be hidden
-            $editorcontainer.css('top', $editorcontainer.offset().top - $epAuthorshipToggleAuthorList.outerHeight());
+            $window.off('resize', resizeHandler);
+
             $epAuthorshipToggleAuthorList.toggle();
         } else {
+            $window.on('resize', resizeHandler);
+
             // Clear previous authors and build a new author list
             $epAuthorList.empty();
 
@@ -50,7 +62,7 @@ exports.postToolbarInit = function (hook_name, args) {
 
             if (Object.keys(authors).length) {
                 $epAuthorshipToggleAuthorList.toggle(); // Show before to get height
-                $editorcontainer.css('top', $editorcontainer.offset().top + $epAuthorshipToggleAuthorList.outerHeight());
+                resizeHandler();
             }
         }
     });
